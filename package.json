@@ -1,0 +1,11 @@
+{
+  "name": "scam-checker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "เว็บตรวจจับและป้องกันสแกมเมอร์ (RAG + Agent + Skill) โปรเจกต์วิชาปัญญาประดิษฐ์กับวิถีชีวิตใหม่",
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "dev": "npx serve ."
+  },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ผลการตรวจสอบ — Scam Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="result">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 5 7v8c0 7 4.6 12.2 11 14 6.4-1.8 11-7 11-14V7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="m11 16 4 4 7-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Scam Checker
+      </a>
+      <nav aria-label="เมนูหลัก">
+        <a href="index.html">หน้าแรก</a>
+        <a href="check.html">ตรวจสอบ</a>
+        <a href="report.html">แจ้งเบาะแส</a>
+        <a href="admin.html">แดชบอร์ด</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="result-root">
+    <p id="empty" hidden>ยังไม่มีผลการตรวจสอบ <a href="check.html">ไปที่หน้าตรวจสอบ</a></p>
+
+    <section id="verdict" class="verdict" hidden>
+      <div class="gauge" id="gauge" role="img" aria-label="คะแนนความเสี่ยง"></div>
+      <div>
+        <span class="badge" id="level-badge"></span>
+        <h1 id="verdict-title"></h1>
+        <p id="verdict-sub" class="hint"></p>
+      </div>
+    </section>
+
+    <p class="notice" id="disagree" hidden>ผลจากระบบกฎและจาก Claude ต่างกันมาก (ต่าง 40 คะแนนขึ้นไป) ควรตรวจสอบกับต้นทางด้วยตัวเองก่อนตัดสินใจ</p>
+
+    <section id="url-warnings" hidden>
+      <h2>คำเตือนเกี่ยวกับลิงก์</h2>
+      <div id="url-list"></div>
+    </section>
+
+    <div class="grid-2" id="details" hidden>
+      <section class="panel"><h2>เหตุผลที่มีความเสี่ยง</h2><ul class="list" id="reasons"></ul></section>
+      <section class="panel"><h2>สิ่งที่ควรทำ</h2><ul class="list" id="recs"></ul></section>
+      <section class="panel"><h2>สัญญาณ Scam ที่ตรวจพบ</h2><ul class="chips" id="signals"></ul></section>
+      <section class="panel"><h2>ความรู้ที่ใช้อ้างอิง (RAG)</h2><ul class="list" id="kb"></ul></section>
+    </div>
+
+    <section class="panel" id="extras" hidden>
+      <h2>รายการที่พบใน blacklist และไฟล์ที่ตรวจ</h2>
+      <div id="extras-body"></div>
+    </section>
+
+    <section class="panel" id="privacy" hidden>
+      <h2>ความเป็นส่วนตัว</h2>
+      <p id="privacy-text"></p>
+      <pre class="preview" id="privacy-preview"></pre>
+    </section>
+
+    <section class="panel" id="trace-panel" hidden>
+      <h2>ขั้นตอนที่ Agent ทำ</h2>
+      <ol class="trace" id="trace"></ol>
+    </section>
+
+    <div class="actions" id="result-actions" hidden>
+      <button class="btn" id="copy-warning" type="button">คัดลอกข้อความเตือนส่งให้คนอื่น</button>
+      <button class="btn ghost" id="download-json" type="button">ดาวน์โหลดผลเป็น JSON</button>
+      <a class="btn ghost" id="report-link" href="report.html">แจ้งเบาะแสเรื่องนี้</a>
+      <a class="btn ghost" href="check.html">ตรวจเรื่องใหม่</a>
+    </div>
+  </main>
+
+  <footer class="wrap">ผลลัพธ์เป็นการประเมินเบื้องต้น ไม่ใช่คำตัดสินทางกฎหมาย หากถูกหลอกให้โอนเงินแล้ว โทร 1441 และแจ้งธนาคารทันที</footer>
+
+  <script src="js/anonymize.js"></script>
+  <script src="js/signals.js"></script>
+  <script src="js/rag.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/agent.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

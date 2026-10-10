@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>แดชบอร์ด — Scam Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 5 7v8c0 7 4.6 12.2 11 14 6.4-1.8 11-7 11-14V7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="m11 16 4 4 7-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Scam Checker
+      </a>
+      <nav aria-label="เมนูหลัก">
+        <a href="index.html">หน้าแรก</a>
+        <a href="check.html">ตรวจสอบ</a>
+        <a href="report.html">แจ้งเบาะแส</a>
+        <a href="admin.html" aria-current="page">แดชบอร์ด</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>แดชบอร์ดผู้ดูแล</h1>
+    <p class="notice">หน้านี้อ่านข้อมูลจาก localStorage ของเบราว์เซอร์นี้ (Memory แบบ JSON) ไม่มีระบบล็อกอิน จึงไม่ควรใช้เก็บข้อมูลที่เป็นความลับ ถ้าต้องการรวมข้อมูลหลายผู้ใช้ ให้ส่งผลไปที่ Google Sheet หรือฐานข้อมูลกลางและเพิ่มระบบยืนยันตัวตน</p>
+
+    <div class="stat-row" id="stats"></div>
+
+    <div class="grid-2">
+      <section class="panel"><h2>จำนวนตามระดับความเสี่ยง</h2><div class="bars" id="level-bars"></div></section>
+      <section class="panel"><h2>สัญญาณที่พบบ่อย</h2><div class="bars" id="signal-bars"></div></section>
+    </div>
+
+    <section class="panel">
+      <h2>ประวัติการตรวจ</h2>
+      <p class="hint">เก็บเฉพาะตัวอย่างข้อความที่ปิดบังข้อมูลส่วนตัวแล้ว (สูงสุด 200 รายการล่าสุด)</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>เวลา</th><th>คะแนน</th><th>ระดับ</th><th>ข้อความ (ปิดบังแล้ว)</th></tr></thead>
+        <tbody id="history-rows"></tbody>
+      </table></div>
+      <div class="actions">
+        <button class="btn ghost small" id="export-all" type="button">ส่งออก Memory เป็น JSON</button>
+        <button class="btn ghost small" id="clear-all" type="button">ล้างข้อมูลทั้งหมด</button>
+      </div>
+      <p class="notice" id="confirm-box" hidden>ยืนยันการล้างข้อมูลทั้งหมด? <button class="btn small" id="confirm-yes" type="button">ล้างเลย</button> <button class="btn ghost small" id="confirm-no" type="button">ยกเลิก</button></p>
+    </section>
+  </main>
+
+  <footer class="wrap">Scam Checker — dashboard</footer>
+
+  <script src="js/anonymize.js"></script>
+  <script src="js/signals.js"></script>
+  <script src="js/rag.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/agent.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>แจ้งเบาะแส — Scam Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="report">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 5 7v8c0 7 4.6 12.2 11 14 6.4-1.8 11-7 11-14V7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="m11 16 4 4 7-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Scam Checker
+      </a>
+      <nav aria-label="เมนูหลัก">
+        <a href="index.html">หน้าแรก</a>
+        <a href="check.html">ตรวจสอบ</a>
+        <a href="report.html" aria-current="page">แจ้งเบาะแส</a>
+        <a href="admin.html">แดชบอร์ด</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>แจ้งเบาะแสมิจฉาชีพ</h1>
+    <p class="notice">รายงานนี้เก็บไว้ในเบราว์เซอร์ของคุณเท่านั้น และจะถูกนำมาใช้เทียบ blacklist ตอนตรวจครั้งต่อไปบนเครื่องนี้ เพื่อลดความเสี่ยงของการกล่าวหาผู้อื่น โปรดรายงานเฉพาะสิ่งที่คุณมีหลักฐาน การแจ้งความจริงต้องทำที่ thaipoliceonline.go.th</p>
+    <div class="grid-2">
+      <form class="panel" id="report-form" novalidate>
+        <div class="field">
+          <label for="r-type">ประเภท</label>
+          <select id="r-type">
+            <option value="domain">ลิงก์ / โดเมน</option>
+            <option value="phone">เบอร์โทร</option>
+            <option value="account">เลขบัญชี</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="r-value">ค่าที่ต้องการรายงาน</label>
+          <input id="r-value" type="text" autocomplete="off" required placeholder="เช่น fake-bank.example หรือ 0812345678">
+        </div>
+        <div class="field">
+          <label for="r-note">รายละเอียดสั้น ๆ (ไม่ต้องใส่ชื่อหรือข้อมูลส่วนตัวของคุณ)</label>
+          <textarea id="r-note" maxlength="300" style="min-height:90px"></textarea>
+        </div>
+        <button class="btn" type="submit">บันทึกรายงาน</button>
+        <p class="notice" id="r-msg" role="status" hidden></p>
+      </form>
+      <section class="panel">
+        <h2>รายงานของคุณ</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ประเภท</th><th>ค่า</th><th>หมายเหตุ</th><th></th></tr></thead>
+          <tbody id="report-rows"></tbody>
+        </table></div>
+        <div class="actions"><button class="btn ghost small" id="export-reports" type="button">ส่งออกเป็น JSON</button></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap">ต้องการให้รายงานใช้ร่วมกันหลายคน ให้ส่งไปเก็บที่ฐานข้อมูลกลาง (ดู README หัวข้อพัฒนาต่อ)</footer>
+
+  <script src="js/anonymize.js"></script>
+  <script src="js/signals.js"></script>
+  <script src="js/rag.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/agent.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

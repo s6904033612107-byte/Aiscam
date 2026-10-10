@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "note": "ข้อมูลในไฟล์นี้เป็นตัวอย่างสำหรับทดสอบ (demo: true) ไม่ใช่รายชื่อมิจฉาชีพจริง ก่อนใช้งานจริงให้แทนที่ด้วยข้อมูลจากแหล่งที่เชื่อถือได้ และระวังการกล่าวหาผู้อื่นโดยไม่มีหลักฐาน",
+    "updated": "2026-10-10",
+    "suggested_sources": [
+      "Google Safe Browsing (ผ่าน api/url-reputation.js)",
+      "VirusTotal (ผ่าน api/url-reputation.js)",
+      "PhishTank / OpenPhish (ดาวน์โหลดรายการแล้วแปลงเป็นไฟล์นี้)",
+      "ข้อมูลที่ผู้ใช้รายงานเองใน report.html (เก็บในเครื่อง)"
+    ]
+  },
+  "domains": [
+    { "value": "scb-easy-update.example", "type": "phishing", "source": "demo", "note": "โดเมนตัวอย่าง", "demo": true },
+    { "value": "claim-prize-th.example", "type": "prize-scam", "source": "demo", "note": "โดเมนตัวอย่าง", "demo": true }
+  ],
+  "phones": [
+    { "value": "0800000000", "type": "impersonation", "source": "demo", "note": "เบอร์ตัวอย่างสำหรับทดสอบ", "demo": true }
+  ],
+  "accounts": [
+    { "value": "0000000000", "type": "mule-account", "source": "demo", "note": "เลขบัญชีตัวอย่างสำหรับทดสอบ", "demo": true }
+  ],
+  "file_hashes": [
+    { "value": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "type": "test-file", "source": "demo", "note": "SHA-256 ของไฟล์ว่าง (0 ไบต์) ใช้ทดสอบระบบตรวจไฟล์", "demo": true }
+  ]
+}

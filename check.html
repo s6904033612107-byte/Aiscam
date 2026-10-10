@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ตรวจสอบ — Scam Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="check">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 5 7v8c0 7 4.6 12.2 11 14 6.4-1.8 11-7 11-14V7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="m11 16 4 4 7-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Scam Checker
+      </a>
+      <nav aria-label="เมนูหลัก">
+        <a href="index.html">หน้าแรก</a>
+        <a href="check.html" aria-current="page">ตรวจสอบ</a>
+        <a href="report.html">แจ้งเบาะแส</a>
+        <a href="admin.html">แดชบอร์ด</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>ตรวจสอบข้อความ ลิงก์ หรือไฟล์</h1>
+
+    <form id="check-form" class="grid-2" novalidate>
+      <div class="panel">
+        <div class="field">
+          <label for="text">ข้อความ หรือลิงก์ที่ได้รับ</label>
+          <textarea id="text" maxlength="6000" placeholder="วางข้อความ SMS แชต อีเมล หรือลิงก์ที่นี่"></textarea>
+          <div class="hint"><span id="count">0</span>/6000 ตัวอักษร</div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="phone">เบอร์โทรที่ติดต่อมา (ไม่บังคับ)</label>
+            <input id="phone" type="tel" inputmode="tel" autocomplete="off" placeholder="เช่น 0812345678">
+          </div>
+          <div class="field">
+            <label for="account">เลขบัญชีที่ให้โอน (ไม่บังคับ)</label>
+            <input id="account" type="text" inputmode="numeric" autocomplete="off" placeholder="เช่น 1234567890">
+          </div>
+        </div>
+        <div class="field">
+          <label for="files">แนบไฟล์ที่น่าสงสัย (ไม่บังคับ)</label>
+          <input id="files" type="file" multiple>
+          <div class="hint">ระบบอ่านชื่อ ประเภทจริง และ hash ในเครื่องของคุณ ไม่อัปโหลดไฟล์ไปที่ใด และไม่เปิดไฟล์ให้ทำงาน</div>
+        </div>
+        <label class="check"><input id="use-claude" type="checkbox" checked> <span>ให้ Claude ช่วยวิเคราะห์ (ส่งเฉพาะข้อความที่ปิดบังข้อมูลส่วนตัวแล้ว ต้อง deploy บน Vercel และตั้งค่า API key)</span></label>
+        <div class="actions">
+          <button class="btn" id="run" type="submit">ตรวจสอบ</button>
+          <button class="btn ghost" id="clear" type="button">ล้างข้อมูล</button>
+        </div>
+        <p class="notice" id="error" role="alert" hidden></p>
+      </div>
+
+      <div class="panel">
+        <h2>ข้อความที่จะถูกส่งให้ AI</h2>
+        <p class="hint">ตัวอย่างหลังปิดบังข้อมูลส่วนตัว ถ้ามีข้อมูลที่ยังหลุดอยู่ ให้ลบออกจากช่องซ้ายก่อนตรวจ</p>
+        <pre class="preview" id="preview" aria-live="polite">(ยังไม่มีข้อความ)</pre>
+        <p class="hint" id="mask-summary"></p>
+        <h2 style="margin-top:20px">ขั้นตอนของ Agent</h2>
+        <ol class="trace" id="trace" aria-live="polite"><li class="skipped"><span class="dot"></span><span>รอการตรวจสอบ</span><span></span></li></ol>
+      </div>
+    </form>
+  </main>
+
+  <footer class="wrap">อย่าวางรหัสผ่านหรือ OTP จริงลงในช่องข้อความ ระบบปิดบังให้ แต่ไม่ควรเสี่ยง</footer>
+
+  <script src="js/anonymize.js"></script>
+  <script src="js/signals.js"></script>
+  <script src="js/rag.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/agent.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

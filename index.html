@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scam Checker — ตรวจสแกมก่อนเชื่อ ก่อนคลิก ก่อนโอน</title>
+  <meta name="description" content="วางข้อความ ลิงก์ หรือไฟล์ ระบบจะให้คะแนนความเสี่ยง 0-100 พร้อมเหตุผลและคำแนะนำ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 5 7v8c0 7 4.6 12.2 11 14 6.4-1.8 11-7 11-14V7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="m11 16 4 4 7-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Scam Checker
+      </a>
+      <nav aria-label="เมนูหลัก">
+        <a href="index.html" aria-current="page">หน้าแรก</a>
+        <a href="check.html">ตรวจสอบ</a>
+        <a href="report.html">แจ้งเบาะแส</a>
+        <a href="admin.html">แดชบอร์ด</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>เช็คก่อนเชื่อ ก่อนคลิก ก่อนโอน</h1>
+      <p class="lead">วางข้อความที่ได้รับ ลิงก์ เบอร์โทร เลขบัญชี หรือไฟล์ที่น่าสงสัย ระบบจะให้คะแนนความเสี่ยง 0-100 บอกเหตุผล สัญญาณที่พบ และสิ่งที่ควรทำ</p>
+      <div class="hero-actions">
+        <a class="btn" href="check.html">เริ่มตรวจสอบ</a>
+        <a class="btn ghost" href="report.html">แจ้งเบาะแสมิจฉาชีพ</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="how">
+      <h2 id="how">ตรวจอย่างไร</h2>
+      <div class="steps">
+        <div class="step"><b>1. ปิดบังข้อมูลส่วนตัว</b><br>เบอร์โทร เลขบัญชี เลขบัตร อีเมล ถูกแทนด้วยตัวแทนก่อนส่งให้ AI และคุณดูตัวอย่างก่อนส่งได้</div>
+        <div class="step"><b>2. Agent ใช้เครื่องมือทีละขั้น</b><br>ตรวจลิงก์ เทียบ blacklist ตรวจไฟล์ ค้นฐานความรู้ (RAG) และให้ Claude สรุปเหตุผล</div>
+        <div class="step"><b>3. ได้ผลที่อ่านง่าย</b><br>คะแนน 0-100 เหตุผล สัญญาณ Scam คำแนะนำ และคำเตือนเมื่อพบลิงก์น่าสงสัย</div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:28px" aria-labelledby="features">
+      <h2 id="features">สิ่งที่คุณจะได้รับ</h2>
+      <ul class="feature-list">
+        <li>บอกว่าข้อความมีลักษณะเป็น Scam หรือไม่</li>
+        <li>คะแนนความเสี่ยง 0-100 และระดับความเสี่ยง</li>
+        <li>เหตุผลที่ทำให้ข้อความมีความเสี่ยง</li>
+        <li>สัญญาณ Scam ที่ตรวจพบ พร้อมน้ำหนักแต่ละตัว</li>
+        <li>คำแนะนำว่าควรทำอะไรต่อ</li>
+        <li>เตือนเมื่อพบลิงก์หรือข้อมูลน่าสงสัย ไม่ควรคลิกหรือให้ข้อมูลส่วนตัว</li>
+        <li>ตรวจลิงก์และไฟล์ที่แนบมาเอง (ชื่อไฟล์ ประเภทจริง และ hash)</li>
+        <li>คัดลอกข้อความเตือนไปส่งให้ญาติหรือเพื่อนได้ทันที</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="try">
+      <h2 id="try">ลองด้วยข้อความตัวอย่าง</h2>
+      <p class="hint">ข้อความทั้งหมดเป็นตัวอย่างสมมติเพื่อทดสอบ</p>
+      <div class="sample-list" id="sample-links" aria-live="polite"></div>
+    </section>
+
+    <section class="panel" style="margin-top:28px">
+      <h2>ข้อควรรู้</h2>
+      <p>ผลลัพธ์เป็นการประเมินความเสี่ยงเบื้องต้น ไม่ใช่คำตัดสินทางกฎหมาย และไม่สามารถรับรองว่าข้อความใดปลอดภัย 100% หากถูกหลอกให้โอนเงินไปแล้ว โทร 1441 และแจ้งธนาคารทันที</p>
+    </section>
+  </main>
+
+  <footer class="wrap">โปรเจกต์การเรียน: ปัญญาประดิษฐ์กับวิถีชีวิตใหม่ — ข้อมูลที่ใช้ตรวจและรายชื่อใน blacklist เป็นข้อมูลตัวอย่าง</footer>
+
+  <script src="js/anonymize.js"></script>
+  <script src="js/signals.js"></script>
+  <script src="js/rag.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/agent.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

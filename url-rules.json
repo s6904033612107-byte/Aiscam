@@ -1,0 +1,51 @@
+{
+  "_meta": {
+    "note": "กฎตรวจลิงก์ (heuristics) ใช้ในเบราว์เซอร์ ไม่ต้องเรียก API ภายนอก ควรตรวจสอบรายการโดเมนทางการ (official) กับเว็บไซต์ของหน่วยงานนั้นอีกครั้งก่อนใช้งานจริง",
+    "updated": "2026-10-10"
+  },
+  "shorteners": [
+    "bit.ly", "tinyurl.com", "cutt.ly", "is.gd", "t.co", "rebrand.ly", "s.id",
+    "shorturl.at", "ow.ly", "rb.gy", "tiny.cc", "goo.gl", "t.ly", "reurl.cc"
+  ],
+  "suspicious_tlds": {
+    "top": 0.3, "xyz": 0.3, "icu": 0.35, "click": 0.35, "vip": 0.3, "cc": 0.2,
+    "tk": 0.35, "ml": 0.35, "ga": 0.35, "cf": 0.35, "gq": 0.35, "work": 0.25,
+    "buzz": 0.3, "live": 0.15, "site": 0.2, "online": 0.2, "shop": 0.15,
+    "link": 0.25, "club": 0.2, "fun": 0.25, "cyou": 0.35, "rest": 0.3,
+    "sbs": 0.3, "bet": 0.3, "win": 0.3, "loan": 0.35
+  },
+  "bare_domain_tlds": [
+    "com", "net", "org", "info", "biz", "co", "th", "io", "me", "app", "cn", "ru",
+    "in", "to", "ly", "gl", "ee", "top", "xyz", "icu", "click", "vip", "cc", "tk",
+    "ml", "ga", "cf", "gq", "work", "buzz", "live", "site", "online", "shop", "link",
+    "club", "fun", "cyou", "rest", "sbs", "bet", "win", "loan", "id", "us", "uk"
+  ],
+  "path_keywords": [
+    "login", "signin", "verify", "verification", "secure", "update", "confirm",
+    "otp", "claim", "wallet", "bonus", "gift", "prize", "suspend", "unlock", "kyc"
+  ],
+  "brands": [
+    { "id": "scb", "name": "ธนาคารไทยพาณิชย์ (SCB)", "tokens": ["scb", "scbeasy"], "official": ["scb.co.th"] },
+    { "id": "kbank", "name": "ธนาคารกสิกรไทย (KBank)", "tokens": ["kbank", "kasikorn", "kasikornbank", "kplus"], "official": ["kasikornbank.com", "kbank.com"] },
+    { "id": "ktb", "name": "ธนาคารกรุงไทย (KTB)", "tokens": ["ktb", "krungthai"], "official": ["krungthai.com", "ktb.co.th"] },
+    { "id": "bbl", "name": "ธนาคารกรุงเทพ (BBL)", "tokens": ["bangkokbank", "bualuang"], "official": ["bangkokbank.com"] },
+    { "id": "ttb", "name": "ธนาคารทหารไทยธนชาต (ttb)", "tokens": ["ttbbank"], "official": ["ttbbank.com"] },
+    { "id": "gsb", "name": "ธนาคารออมสิน", "tokens": ["gsb"], "official": ["gsb.or.th"] },
+    { "id": "baac", "name": "ธ.ก.ส.", "tokens": ["baac"], "official": ["baac.or.th"] },
+    { "id": "truemoney", "name": "TrueMoney", "tokens": ["truemoney", "truewallet"], "official": ["truemoney.com"] },
+    { "id": "shopee", "name": "Shopee", "tokens": ["shopee"], "official": ["shopee.co.th", "shopee.com"] },
+    { "id": "lazada", "name": "Lazada", "tokens": ["lazada"], "official": ["lazada.co.th", "lazada.com"] },
+    { "id": "kerry", "name": "Kerry Express", "tokens": ["kerryexpress"], "official": ["kerryexpress.com"] },
+    { "id": "flash", "name": "Flash Express", "tokens": ["flashexpress"], "official": ["flashexpress.com", "flashexpress.co.th"] },
+    { "id": "thailandpost", "name": "ไปรษณีย์ไทย", "tokens": ["thailandpost"], "official": ["thailandpost.com", "thailandpost.co.th"] },
+    { "id": "line", "name": "LINE", "tokens": ["line"], "official": ["line.me", "lin.ee", "line.biz"] },
+    { "id": "facebook", "name": "Facebook", "tokens": ["facebook"], "official": ["facebook.com", "fb.com"] },
+    { "id": "google", "name": "Google", "tokens": ["google"], "official": ["google.com", "google.co.th"] },
+    { "id": "apple", "name": "Apple", "tokens": ["apple", "icloud"], "official": ["apple.com", "icloud.com"] },
+    { "id": "paypal", "name": "PayPal", "tokens": ["paypal"], "official": ["paypal.com"] },
+    { "id": "dhl", "name": "DHL", "tokens": ["dhl"], "official": ["dhl.com"] },
+    { "id": "revenue", "name": "กรมสรรพากร", "tokens": ["revenue", "rd-th"], "official": ["rd.go.th"] },
+    { "id": "police", "name": "สำนักงานตำรวจแห่งชาติ", "tokens": ["royalthaipolice", "thaipolice"], "official": ["royalthaipolice.go.th", "police.go.th"] },
+    { "id": "dsi", "name": "กรมสอบสวนคดีพิเศษ (DSI)", "tokens": ["dsi"], "official": ["dsi.go.th"] }
+  ]
+}
