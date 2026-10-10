@@ -8,9 +8,9 @@
   const SC = window.ScamChecker;
 
   /* ===== ตั้งค่า ===== */
-  const CONFIG = {
-    llmEndpoint: '/api/analyze',               // Vercel serverless (เรียก Claude) — ถ้าไม่มีจะข้ามอัตโนมัติ
-    reputationEndpoint: '/api/url-reputation', // Google Safe Browsing / VirusTotal (ไม่บังคับ)
+ const CONFIG = {
+  llmEndpoint: '',          // เดิม '/api/analyze'
+  reputationEndpoint: '',   // เดิม '/api/url-reputation'
     sheetWebhook: '',                          // URL ของ Google Apps Script (ดู docs/google-apps-script.gs) เว้นว่างถ้าไม่ใช้
     maxFileBytes: 25 * 1024 * 1024
   };
